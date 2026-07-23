@@ -1,0 +1,21 @@
+{
+    "name": "pbr/berpf",
+    "description": "A Wordpress plugin  to show a pre-filtered result of a search for accommodations via Yanolja's (formerly eZee) booking engine",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Pbr\\Berpf\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "techsupport"
+        }
+    ],
+    "config": {
+        "platform": {
+            "php": "8.2.0"
+        }
+    }
+}
