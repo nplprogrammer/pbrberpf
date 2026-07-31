@@ -2,6 +2,8 @@
 
 namespace Pbr\Berpf;
 
+use Pbr\Berpf\Admin;
+
 class Plugin {
 	protected static ?self $instance = null;
 	protected ?string $entry_point = null;
@@ -18,52 +20,13 @@ class Plugin {
         	return '<p> HELLO BIG MAN</p>';
 	}
 
-	static function adm_cfg_menu_html() {
-?>
-<h3>pbrberpf: PBR Booking Engine Result Pre-Filter</h3>
-<div class="">
-	<form method="post" action="options.php">
-	Booking engine URL: <input type="text" name="srcurl" size="100" /><br />
-	<input type="submit" value="Save" />
-</div>
-<?PHP
-	}
 
-	protected static function adm_cfg_menu(): void {
-		add_menu_page(
-			'pbrberpf config',
-			'pbrberpf',
-			'manage_options',
-			'pbrberpf_config',
-			__NAMESPACE__ . '\Plugin::adm_cfg_menu_html',
-			'adm_cfg_menu_html',
-			'dashicons-admin-generic',
-			100
-		);
-	}
-
-	protected static function rsettings() {
-		register_setting('Filters', 'cfg-filters');
-		add_settings_section('filter-a', 'Filter A',
-			'section_filter_a', 'my-plugin');
-		add_settings_sectioN('filter-b', 'Filter B',
-			'section_filter_b', 'my-plugin');
-
-		register_setting('my_settings_group',
-				'my_option_name',
-			[
-				'type' => 'string',
-				'sanitize_callback' => 'sanitize_text_field',
-				'default' => ''
-			]
-		);
-	}
 	public static function run(string $entry_point): self {
 		add_shortcode('pbrberf_display', function (): string {
 			 return self::display(); });
-		add_action('admin_menu',  function () { 
-				return self::adm_cfg_menu(); });
-		add_action('admin_init', function () { self::rsettings(); });
+		add_action('admin_menu',  function () {
+return Admin::adm_cfg_menu(); });
+		add_action('admin_init', function () { Admin::rsettings(); });
 
 		$plugin = self::get_instance();
 

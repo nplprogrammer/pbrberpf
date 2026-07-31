@@ -1,3 +1,5 @@
 /vendor/
 /TC/
+/doc/diagrams.odg
+/doc/misc_notes.txt
 ccomposer.sh
