@@ -11,7 +11,7 @@ As it is based on the current booking engine behavior (as of mid 2026,) and not 
 ### Architecture
 ![Original Context Diagram](doc/prevcontextdiag.jpg)
 ![New Context Diagram](doc/newcontextdiag.jpg)
-![Container Diagram](doc/containrediag.jpg)
+![Container Diagram](doc/containerdiag.jpg)
 
 ### License
 
